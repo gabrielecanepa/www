@@ -1,27 +1,48 @@
 {
   "name": "www",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
+    "analyze": "ANALYZE=true next build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint -- --fix",
+    "lint:commits": "commitlint --from origin/main --to HEAD --verbose",
+    "lint:all": "pnpm lint && pnpm lint:commits",
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "packageManager": "pnpm@8.15.5",
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.3"
+    "million": "^3.0.6",
+    "next": "^14.1.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.3"
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@commitlint/types": "^19.0.3",
+    "@next/bundle-analyzer": "^14.1.4",
+    "@types/node": "^20.11.25",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "atomizer": "^3.28.0",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.11",
+    "postcss-atomizer": "^1.0.2",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.2"
   }
 }
