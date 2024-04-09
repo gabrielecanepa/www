@@ -1,16 +1,12 @@
-'use client'
-
 import Image from 'next/image'
 
-import { type Component } from '@/utils'
-
-const Home: Component = () => (
+const Home = (): JSX.Element => (
   <main lang="en" className="D(f) Fld(c) Ai(c) Jc(sb) P(32px) Bg(#fff)">
     <h1 className="C(white) Bg(#fff) Fw(b) Fz(2rem)">{'Welcome!'}</h1>
     <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
       <p>
         {'Get started by editing'}
-        &nbsp;
+&nbsp;
         <code className="font-mono font-bold">{'src/app/page.tsx'}</code>
       </p>
       <div>
@@ -56,8 +52,7 @@ const Home: Component = () => (
         rel="noopener noreferrer"
       >
         <h2 className="mb-3 text-2xl font-semibold">
-          {'Learn'}
-          {' '}
+          {'Learn '}
           <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">{'-&gt;'}</span>
         </h2>
         <p className="m-0 max-w-[30ch] text-sm opacity-50">{'Learn about Next.js in an interactive course with&nbsp;quizzes!'}</p>

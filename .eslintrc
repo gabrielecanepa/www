@@ -1,0 +1,211 @@
+{
+  "root": true,
+  "plugins": [
+    "@stylistic",
+    "import",
+    "perfectionist",
+    "prefer-arrow",
+    "unused-imports"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@stylistic/recommended-extends",
+    "plugin:import/recommended"
+  ],
+  "settings": {
+    "import/internal-regex": "^@/"
+  },
+  "rules": {
+    "arrow-body-style": [2, "as-needed"],
+    "func-style": [2, "expression"],
+    "max-lines": 2,
+    "no-console": [1, { "allow": ["error", "warn"] }],
+    "no-duplicate-imports": [2, { "includeExports": true }],
+    "no-restricted-imports": [
+      2,
+      {
+        "patterns": [
+          {
+            "group": ["../*"],
+            "message": "Usage of relative parent imports is not allowed."
+          }
+        ]
+      }
+    ],
+    "no-unused-vars": [2, { "argsIgnorePattern": "^_" }],
+    "no-var": 2,
+    "object-shorthand": [2, "always"],
+    "prefer-arrow-callback": [2, { "allowNamedFunctions": true }],
+    "prefer-const": [
+      2,
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "sort-keys": 0,
+    "sort-vars": [1, { "ignoreCase": false }],
+    "@stylistic/array-bracket-newline": 2,
+    "@stylistic/array-element-newline": [2, "consistent"],
+    "@stylistic/eol-last": 2,
+    "@stylistic/jsx-curly-brace-presence": [
+      2,
+      {
+        "props": "never",
+        "children": "always",
+        "propElementValues": "always"
+      }
+    ],
+    "@stylistic/max-len": [2, { "code": 140, "ignoreUrls": true }],
+    "@stylistic/no-extra-semi": 2,
+    "@stylistic/no-multiple-empty-lines": [2, { "max": 1 }],
+    "@stylistic/no-trailing-spaces": 2,
+    "@stylistic/object-curly-spacing": [2, "always"],
+    "@stylistic/jsx-one-expression-per-line": [2, { "allow": "single-child" }],
+    "@stylistic/quote-props": [2, "as-needed"],
+    "@stylistic/quotes": [2, "single"],
+    "@stylistic/semi": [2, "never"],
+    "import/consistent-type-specifier-style": [2, "prefer-inline"],
+    "import/first": 2,
+    "import/newline-after-import": [
+      2,
+      {
+        "exactCount": true,
+        "considerComments": true
+      }
+    ],
+    "import/no-absolute-path": 2,
+    "import/no-amd": 2,
+    "import/no-commonjs": 2,
+    "import/no-deprecated": 2,
+    "import/no-duplicates": [2, { "prefer-inline": true }],
+    "import/no-empty-named-blocks": 2,
+    "import/no-extraneous-dependencies": 2,
+    "import/no-mutable-exports": 2,
+    "import/no-self-import": 2,
+    "import/no-unused-modules": [2, { "missingExports": true }],
+    "import/no-useless-path-segments": [2, { "noUselessIndex": true }],
+    "import/order": [
+      2,
+      {
+        "alphabetize": {
+          "order": "asc",
+          "orderImportKind": "desc"
+        },
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          ["internal", "parent", "sibling", "index"]
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "react/**",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "next",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "next/**",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "@/**",
+            "group": "parent",
+            "position": "before"
+          }
+        ],
+        "distinctGroup": false,
+        "pathGroupsExcludedImportTypes": ["type"],
+        "warnOnUnassignedImports": true
+      }
+    ],
+    "perfectionist/sort-named-imports": [
+      "error",
+      {
+        "type": "natural",
+        "group-kind": "values-first"
+      }
+    ],
+    "prefer-arrow/prefer-arrow-functions": [
+      1,
+      {
+        "allowStandaloneDeclarations": false,
+        "classPropertiesAllowed": false,
+        "disallowPrototype": true,
+        "singleReturnOnly": false
+      }
+    ],
+    "unused-imports/no-unused-imports": 2
+  },
+  "overrides": [
+    {
+      "files": ["*.config.?(m)[jt]s"],
+      "rules": {
+        "import/no-anonymous-default-export": 0
+      }
+    },
+    {
+      "files": [
+        "*.setup.?(m)[jt]s",
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "rules": {
+        "import/no-unused-modules": 0
+      }
+    },
+    {
+      "files": ["**/*.ts?(x)"],
+      "plugins": ["@typescript-eslint"],
+      "extends": [
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended-type-checked"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "settings": {
+        "import/resolver": {
+          "typescript": true
+        }
+      },
+      "rules": {
+        "@typescript-eslint/consistent-type-imports": [
+          2,
+          {
+            "prefer": "type-imports",
+            "fixStyle": "separate-type-imports",
+            "disallowTypeAnnotations": true
+          }
+        ],
+        "@typescript-eslint/explicit-function-return-type": 2,
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-namespace": 0,
+        "@typescript-eslint/no-unused-vars": 2,
+        "@typescript-eslint/no-useless-empty-export": 2,
+        "@typescript-eslint/no-useless-template-literals": 2,
+        "@typescript-eslint/prefer-for-of": 2,
+        "@typescript-eslint/prefer-string-starts-ends-with": 2
+      },
+      "overrides": [
+        {
+          "files": ["*.config.ts"],
+          "rules": {
+            "@typescript-eslint/no-unsafe-argument": 0
+          }
+        }
+      ]
+    }
+  ]
+}

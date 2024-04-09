@@ -1,0 +1,23 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "npm"
+    groups:
+      deps:
+        applies-to: "version-updates"
+        dependency-type: "production"
+      deps-dev:
+        dependency-type: "development"
+      security:
+        applies-to: "security-updates"
+        dependency-type: "production"
+    commit-message:
+      prefix: "build(deps)"
+      prefix-development: "build(deps-dev)"
+      include: "scope"

@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+cd "$(git rev-parse --show-toplevel)" || exit
+
+DIRS="__tests__ public src"
+files=$(git ls-files --others --exclude-standard --cached ":(glob)*" | grep -E ".m?[jt]s$" | tr "\n" " ")
+
+for dir in $DIRS; do
+  [ -z "$dir_args" ] && dir_args="--dir $dir" || dir_args="$dir_args --dir $dir"
+done
+
+for file in $files; do
+  [ -z "$file_args" ] && file_args="--file $file" || file_args="$file_args --file $file"
+done
+
+# shellcheck disable=SC2068,SC2086
+next lint $dir_args $file_args $@

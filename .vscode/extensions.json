@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "acss-io.atomic-css-snippets",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "timonwong.shellcheck",
+    "vivaxy.vscode-conventional-commits",
+    "znck.grammarly"
+  ]
+}
